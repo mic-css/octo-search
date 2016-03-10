@@ -6,17 +6,28 @@
     .service('searchService', function($http) {
 
       var self = this;
-      var queryUrl = 'https://api.github.com/search/users';
+      var userSearchUrl = 'https://api.github.com/search/users';
+      var userDetailUrl = 'https://api.github.com/users';
 
-      self.query = function(searchTerm) {
+      self.userSearch = function(searchTerm) {
         return $http({
-          url: queryUrl,
+          url: userSearchUrl,
           method: 'GET',
           params: {
             'q': searchTerm,
             access_token: 'yourtoken'
           }
 
+        });
+      };
+
+      self.userDetailSearch = function(userName) {
+        return $http({
+          url: userDetailUrl + "/" + userName,
+          method: 'GET',
+          params: {
+            access_token: 'yourtoken'
+          }
         });
       };
 
