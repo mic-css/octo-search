@@ -101,9 +101,29 @@ describe('UsersController', function () {
     expect(ctrl.users.length).toEqual(0);
   });
 
-  xit('gets users from the search service', function () {
-    spyOn(MockSearchService, 'getUserData').and.callThrough();
-    ctrl.getUsers();
-    expect(MockSearchService.getUserData).toHaveBeenCalled();
+  it('initializes with an empty search term property', function(){
+    expect(ctrl.searchTerm).toEqual("");
   });
+
+  describe('#getUserData', function(){
+
+    xit('gets users from the search service', function () {
+      spyOn(MockSearchService, 'getUserData').and.callThrough();
+      ctrl.getUsers();
+      expect(MockSearchService.getUserData).toHaveBeenCalled();
+    });
+
+    it('sets the users property to the users from the payload', function(){
+      ctrl.getUsers();
+      expect(ctrl.users.length).toEqual(4);
+    });
+
+    it('sets the users property with each username from the payload', function(){
+      ctrl.getUsers();
+      expect(ctrl.users[0]).toEqual('mike');
+    });
+
+  });
+
+
 });
