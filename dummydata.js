@@ -82,4 +82,5 @@
       "site_admin": false,
       "score": 29.537865
     }
+  ]
 }
