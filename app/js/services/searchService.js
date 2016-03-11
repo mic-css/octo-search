@@ -19,17 +19,13 @@
       };
 
       var parseResults = function(results) {
-        var filteredResults = [];
-        for(var i = 0; i < results.length; i++) {
-          filteredResults.push({
-             avatar_url: results[i].data.avatar_url,
-             login: results[i].data.login,
-             name: results[i].data.name,
-             public_repos: results[i].data.public_repos,
-             followers: results[i].data.followers
-           });
-        }
-        return filteredResults;
+        return {
+          avatar_url: results.avatar_url,
+          login: results.login,
+          name: results.name,
+          public_repos: results.public_repos,
+          followers: results.followers
+        };
       };
 
       self.userSearch = function(searchTerm) {
@@ -52,6 +48,8 @@
           params: {
             access_token: 'b7cc748c07c16eafb87f959beb98345308207674'
           }
+        }).then(function(response) {
+          return parseResults(response.data);
         });
       };
 
@@ -66,7 +64,7 @@
           }).then(function() {
             $q.all(details)
               .then(function(results) {
-                deferred.resolve(parseResults(results));
+                deferred.resolve(results);
               });
           });
         return deferred.promise;
