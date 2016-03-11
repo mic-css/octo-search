@@ -11,7 +11,7 @@
       self.searchTerm = "";
 
       function getUsers() {
-        SearchService.getUserData(self.searchTerm).then(function(userData){
+        SearchService.runAllSearch(self.searchTerm).then(function(userData){
           self.users = userData;
         });
       }

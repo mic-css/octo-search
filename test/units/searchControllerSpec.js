@@ -2,13 +2,13 @@ describe('SearchController', function () {
   var ctrl, MockSearchService, parsedummyData, scope;
 
   beforeEach (function(){
-    MockSearchService = jasmine.createSpyObj('SearchService', ['getUserData']);
+    MockSearchService = jasmine.createSpyObj('SearchService', ['runAllSearch']);
     module('OctoSearch', {SearchService: MockSearchService});
   });
 
   beforeEach(function () {
     inject(function ($controller, $q, $rootScope) {
-      MockSearchService.getUserData.and.returnValue($q.when(parsedDummyData));
+      MockSearchService.runAllSearch.and.returnValue($q.when(parsedDummyData));
       ctrl = $controller('SearchController');
       scope = $rootScope;
     });
@@ -23,7 +23,7 @@ describe('SearchController', function () {
     expect(ctrl.searchTerm).toEqual("");
   });
 
-  describe('#getUserData', function(){
+  describe('#runAllSearch', function(){
     it('sets the users property to the users from the payload', function(){
       ctrl.getUsers();
       scope.$apply();
