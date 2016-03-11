@@ -7,13 +7,14 @@
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
-    <script type="text/javascript" src="app/js/app.js"></script>
-    <script type="text/javascript" src="app/js/controllers/searchController.js"></script>
+    <script type="text/javascript" src="js/app.js"></script>
+    <script type="text/javascript" src="js/controllers/searchController.js"></script>
+    <script type="text/javascript" src="js/services/searchService.js"></script>
   </head>
 
   <body>
-    <div>
-
+    <div ng-controller="SearchController as ctrl">
+      <button ng-click="ctrl.test()">search</button>
     </div>
   </body>
 </html>

@@ -3,7 +3,14 @@
 
   angular
     .module('OctoSearch')
-    .controller('SearchController', ['$resource', function ($resource) {
+    .controller('SearchController', function (searchService) {
+      var self = this;
 
-    }]);
+      self.test = function() {
+        searchService.runAllSearch('arnold')
+          .then(function(searchdata) {
+            console.log(searchdata);
+          });
+        };
+    });
 }());
