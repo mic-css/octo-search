@@ -67,4 +67,50 @@ describe('service: searchService', function() {
       "public_repos": 15,
       "followers": 10
     };
+
+  var details1 =
+    {
+      "login": "rachelsmithcode",
+      "html_url": "https://github.com/rachelsmithcode",
+      "public_repos": 25,
+      "followers": 100
+    };
+
+  var details2 =
+    {
+      "login": "arnoldmanzano",
+      "html_url": "https://github.com/arnoldmanzano",
+      "public_repos": 5,
+      "followers": 10
+    };
+
+  describe('#runAllSearch', function() {
+    beforeEach(inject(function($httpBackend) {
+      httpBackend = $httpBackend;
+      httpBackend
+        .expectGET("https://api.github.com/search/users?access_token=b7cc748c07c16eafb87f959beb98345308207674&q=rachelsmithcode")
+        .respond({ items: items });
+    }));
+    beforeEach(inject(function($httpBackend) {
+        httpBackend = $httpBackend;
+        httpBackend
+          .expectGET("https://api.github.com/users/rachelsmithcode?access_token=b7cc748c07c16eafb87f959beb98345308207674")
+          .respond(details1);
+    }));
+    beforeEach(inject(function($httpBackend) {
+        httpBackend = $httpBackend;
+        httpBackend
+          .expectGET("https://api.github.com/users/arnoldmanzano?access_token=b7cc748c07c16eafb87f959beb98345308207674")
+          .respond(details2);
+    }));
+
+    it('runs all search', function() {
+      search.runAllSearch('rachelsmithcode')
+        .then(function(response) {
+          expect(response[0].data).toEqual(details1);
+          expect(response[1].data).toEqual(details2);
+        });
+      httpBackend.flush();
+    });
+  });
 });
