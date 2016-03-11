@@ -67,4 +67,33 @@ describe('service: searchService', function() {
       "public_repos": 15,
       "followers": 10
     };
+
+  describe('#runAllSearch', function() {
+    beforeEach(inject(function($httpBackend) {
+      httpBackend = $httpBackend;
+      httpBackend
+        .expectGET("https://api.github.com/search/users?access_token=b7cc748c07c16eafb87f959beb98345308207674&q=rachelsmithcode")
+        .respond({ items: items });
+    }));
+    beforeEach(inject(function($httpBackend) {
+        httpBackend = $httpBackend;
+        httpBackend
+          .expectGET("https://api.github.com/users/rachelsmithcode?access_token=b7cc748c07c16eafb87f959beb98345308207674")
+          .respond(details);
+    }));
+    beforeEach(inject(function($httpBackend) {
+        httpBackend = $httpBackend;
+        httpBackend
+          .expectGET("https://api.github.com/users/arnoldmanzano?access_token=b7cc748c07c16eafb87f959beb98345308207674")
+          .respond(details);
+    }));
+
+    it('runs all search', function() {
+      search.runAllSearch('rachelsmithcode')
+        .then(function(response) {
+          expect(response[0].data).toEqual(details);
+        });
+      httpBackend.flush();
+    });
+  });
 });
