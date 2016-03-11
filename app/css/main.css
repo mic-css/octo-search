@@ -1,0 +1,62 @@
+body {
+  font-size: 24px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+#main {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+#search-bar {
+  margin-top: 10%;
+  height: 35px;
+}
+
+#search-bar input[type="text"] {
+  display: inline-block;
+  width: 80%;
+  height: 100%;
+  font-size: 28px;
+  font-weight: 300;
+  padding: 4px 0;
+  border: none;
+  border-bottom: solid 1px rgb(144, 140, 140);
+  color: rgb(144, 140, 140);
+  outline: none;
+  box-sizing: border-box;
+}
+
+#search-bar button {
+  display: inline-block;
+  min-width: 10%;
+  font-size: 24px;
+  height: 100%;
+  font-weight: 300;
+  background-color: rgb(165, 200, 224);
+  border: 1px solid;
+  border-radius: 5px;
+  color: rgb(37, 108, 138);
+  box-sizing: border-box;
+  outline: none;
+}
+
+::-webkit-input-placeholder {
+  color: rgb(144, 140, 140);
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color: rgb(144, 140, 140);
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color: rgb(144, 140, 140);
+}
+
+:-ms-input-placeholder {
+  color: rgb(144, 140, 140);
+}

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Octosearch</title>
-    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="css/main.css" />
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
@@ -12,20 +12,19 @@
   </head>
 
   <body ng-controller="UsersController as usersCtrl">
+    <div id="main">
+      <section id="search-bar">
+        <input type="text" ng-model="usersCtrl.searchTerm" placeholder="Search for GitHub user" autofocus>
+        <button type="button" ng-click="usersCtrl.getUsers()">Go!</button>
+      </section>
 
-    <div class="input-group" id="search-bar">
-      <input type="text" class="form-control" placeholder="Search for GitHub User" ng-model="usersCtrl.searchTerm">
-      <span class="input-group-btn">
-        <button class="btn btn-default" type="button" ng-click="usersCtrl.getUsers()">Go!</button>
-      </span>
+
+      <section>
+        <ul id="user-list" ng-repeat="user in usersCtrl.users">
+          <li class='user'> {{user}} </li>
+        </ul>
+      </section>
     </div>
-
-
-    <section>
-      <ul id="user-list" ng-repeat="user in usersCtrl.users">
-        <li class='user'> {{user}} </li>
-      </ul>
-    </section>
 
   </body>
 </html>
