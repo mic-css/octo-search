@@ -100,11 +100,11 @@
       var userSearchUrl = 'https://api.github.com/search/users';
 
       function getUsers() {
-        self.users = [];
-        self.users = self.getUserData();
+        self.getUserData();
       }
 
       function getUserData() {
+        var users = [];
         $http({
           url: userSearchUrl,
           method: 'GET',
@@ -113,7 +113,8 @@
             q: self.searchTerm
           }
         }).then (function(response){
-          _parseUserData(response.data);
+          users = _parseUserData(response.data);
+          self.users = users;
         });
       }
 
@@ -122,6 +123,8 @@
         data.items.forEach(function(user){
           users.push(user.login);
         });
+        // console.log(users);
+        return users;
       }
     }]);
 }());
