@@ -3,7 +3,7 @@
 
   angular
     .module('OctoSearch')
-    .controller('SearchController', ['$http', function  ($http) { // inject Service
+    .controller('SearchController', ['SearchService', function  (SearchService) { // inject Service
       var self = this;
 
       var userData = {
@@ -95,36 +95,13 @@
 
       self.users = [];
       self.getUsers = getUsers;
-      self.getUserData = getUserData;
       self.searchTerm = "";
-      var userSearchUrl = 'https://api.github.com/search/users';
 
       function getUsers() {
-        self.getUserData();
-      }
-
-      function getUserData() {
-        var users = [];
-        $http({
-          url: userSearchUrl,
-          method: 'GET',
-          params: {
-            access_token: '48d02c029257b65f09d126064a2dc9ec15b0ca55',
-            q: self.searchTerm
-          }
-        }).then (function(response){
-          users = _parseUserData(response.data);
-          self.users = users;
+        SearchService.getUserData(self.searchTerm).then(function(userData){
+          self.users = userData;
         });
       }
 
-      function _parseUserData(data) {
-        var users = [];
-        data.items.forEach(function(user){
-          users.push(user.login);
-        });
-        // console.log(users);
-        return users;
-      }
     }]);
 }());
