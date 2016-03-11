@@ -13,9 +13,14 @@ describe('octoSearch homepage', function () {
 
     var users = element.all(by.css('.user'));
     var firstUser = users.first();
-    expect(firstUser.getText()).toEqual('pitchinvasion');
+    var firstUserLogin = firstUser.element(by.css('.login'));
+    expect(firstUserLogin.getText()).toContain('pitchinvasion');
+    var firstUserFollowers = firstUser.element(by.css('.followers'));
+    expect(firstUserFollowers.getText()).toMatch(/\d{1,}/);
 
     var avatar = element(by.css("img[src*='208986']"));
     expect(avatar.isPresent()).toBe(true);
+
+
   });
 });
