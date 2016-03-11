@@ -3,14 +3,14 @@
 
   angular
     .module('OctoSearch')
-    .service('searchService', function($http, $q) {
+    .service('SearchService', function($http, $q) {
 
       var self = this;
-      var userSearchUrl = 'https://api.github.com/search/users';
-      var userDetailUrl = 'https://api.github.com/users';
+      var requestUsersUrl = 'https://api.github.com/search/users';
+      var requestUserDetailsUrl = 'https://api.github.com/users';
       var MAX_SEARCH = 5;
 
-      var getUserNames = function(items) {
+      var mapUserNames = function(items) {
         var usernames = [];
         for(var i = 0; i < MAX_SEARCH && i < items.length; i++) {
           usernames.push(items[i].login);
@@ -28,22 +28,22 @@
         };
       };
 
-      self.userSearch = function(searchTerm) {
+      self.requestUsers = function(searchTerm) {
         return $http({
-          url: userSearchUrl,
+          url: requestUsersUrl,
           method: 'GET',
           params: {
-            'q': searchTerm,
+            q: searchTerm,
             access_token: 'b7cc748c07c16eafb87f959beb98345308207674'
           }
         }).then(function(response) {
-          return getUserNames(response.data.items);
+          return mapUserNames(response.data.items);
         });
       };
 
-      self.userDetailSearch = function(userName) {
+      self.requestUserDetails = function(userName) {
         return $http({
-          url: userDetailUrl + "/" + userName,
+          url: requestUserDetailsUrl + "/" + userName,
           method: 'GET',
           params: {
             access_token: 'b7cc748c07c16eafb87f959beb98345308207674'
@@ -56,10 +56,10 @@
       self.runAllSearch = function(searchTerm) {
         var deferred = $q.defer();
         var details = [];
-        self.userSearch(searchTerm)
+        self.requestUsers(searchTerm)
           .then(function(usernames) {
             angular.forEach(usernames, function(username) {
-              details.push(self.userDetailSearch(username));
+              details.push(self.requestUserDetails(username));
             });
           }).then(function() {
             $q.all(details)
@@ -71,9 +71,3 @@
       };
     });
 }());
-
-// avatar_url results[0].data.avatar_url
-// followers
-// login
-// name
-// public_repos

@@ -1,10 +1,10 @@
-describe('service: searchService', function() {
+describe('service: SearchService', function() {
 
   var search;
 
   beforeEach(module('OctoSearch'));
-  beforeEach(inject(function(searchService) {
-    search = searchService;
+  beforeEach(inject(function(SearchService) {
+    search = SearchService;
   }));
 
   var items = [
@@ -56,20 +56,16 @@ describe('service: searchService', function() {
       someDataWeDontWant: 1
     };
 
-  describe('#userSearch', function(){
+  describe('#requestUsers', function(){
     beforeEach(inject(function($httpBackend) {
       httpBackend = $httpBackend;
       httpBackend
-        .expectGET("https://api.github.com/search/users?access_token=b7cc748c07c16eafb87f959beb98345308207674&q=hello")
+        .expectGET("https://api.github.com/search/users?access_token=b7cc748c07c16eafb87f959beb98345308207674&q=rachel")
         .respond({ items: items });
     }));
 
-    it('responds to userSearch', function() {
-      expect(search.userSearch).toBeDefined();
-    });
-
     it('displays search results', function() {
-      search.userSearch('hello')
+      search.requestUsers('rachel')
         .then(function(response) {
           expect(response).toEqual([items[0].login, items[1].login]);
         });
@@ -77,7 +73,7 @@ describe('service: searchService', function() {
     });
   });
 
-  describe('#userDetailSearch', function(){
+  describe('#requestUserDetails', function(){
     beforeEach(inject(function($httpBackend) {
         httpBackend = $httpBackend;
         httpBackend
@@ -85,12 +81,8 @@ describe('service: searchService', function() {
           .respond(details1_unfiltered);
     }));
 
-    it('responds to userDetailSearch', function() {
-      expect(search.userDetailSearch).toBeDefined();
-    });
-
     it('displays search results', function() {
-      search.userDetailSearch('rachelsmithcode')
+      search.requestUserDetails('rachelsmithcode')
         .then(function(response) {
           expect(response).toEqual(details1);
         });

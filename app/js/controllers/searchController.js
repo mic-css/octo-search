@@ -3,11 +3,11 @@
 
   angular
     .module('OctoSearch')
-    .controller('SearchController', function (searchService) {
+    .controller('SearchController', function (SearchService) {
       var self = this;
 
       self.test = function() {
-        searchService.runAllSearch('arnold')
+        SearchService.runAllSearch('arnold')
           .then(function(searchdata) {
             console.log(searchdata);
           });
