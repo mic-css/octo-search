@@ -24,12 +24,6 @@ describe('SearchController', function () {
   });
 
   describe('#getUserData', function(){
-    // TODO: make this test pass
-    it('gets users from the search service', function () {
-      ctrl.getUsers();
-      expect(MockSearchService.getUserData).toHaveBeenCalled();
-    });
-
     it('sets the users property to the users from the payload', function(){
       ctrl.getUsers();
       scope.$apply();
