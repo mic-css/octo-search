@@ -3,7 +3,17 @@
 
   angular
     .module('OctoSearch')
-    .controller('SearchController', ['$resource', function ($resource) {
+    .controller('SearchController', ['SearchService', function (SearchService) {
+      var self = this;
 
+      self.users = [];
+      self.getUsers = getUsers;
+      self.searchTerm = "";
+
+      function getUsers() {
+        SearchService.getUserData(self.searchTerm).then(function(userData){
+          self.users = userData;
+        });
+      }
     }]);
 }());
