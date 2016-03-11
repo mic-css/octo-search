@@ -23,7 +23,10 @@
 
     <section>
       <ul id="user-list" ng-repeat="user in searchCtrl.users">
-        <li class='user'> {{user.login}} </li>
+        <li class='user'>
+          <img ng-src="{{user.avatar_url}}&s=75" alt="{{user.login}}-avatar" />
+          {{user.login}}
+        </li>
       </ul>
     </section>
 
