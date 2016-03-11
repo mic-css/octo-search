@@ -17,6 +17,8 @@ describe('octoSearch homepage', function () {
     expect(firstUserLogin.getText()).toContain('pitchinvasion');
     var firstUserFollowers = firstUser.element(by.css('.followers'));
     expect(firstUserFollowers.getText()).toMatch(/\d{1,}/);
+    var firstUserRepos = firstUser.element(by.css('.repos'));
+    expect(firstUserRepos.getText()).toMatch(/\d{1,}/);
 
     var avatar = element(by.css("img[src*='208986']"));
     expect(avatar.isPresent()).toBe(true);
