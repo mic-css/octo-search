@@ -18,6 +18,20 @@
         return usernames;
       };
 
+      var parseResults = function(results) {
+        var filteredResults = [];
+        for(var i = 0; i < results.length; i++) {
+          filteredResults.push({
+             avatar_url: results[i].data.avatar_url,
+             login: results[i].data.login,
+             name: results[i].data.name,
+             public_repos: results[i].data.public_repos,
+             followers: results[i].data.followers
+           });
+        }
+        return filteredResults;
+      };
+
       self.userSearch = function(searchTerm) {
         return $http({
           url: userSearchUrl,
@@ -52,10 +66,16 @@
           }).then(function() {
             $q.all(details)
               .then(function(results) {
-                deferred.resolve(results);
+                deferred.resolve(parseResults(results));
               });
           });
         return deferred.promise;
       };
     });
 }());
+
+// avatar_url results[0].data.avatar_url
+// followers
+// login
+// name
+// public_repos
