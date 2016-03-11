@@ -1,13 +1,15 @@
-describe('UsersController', function () {
-  var ctrl, MockSearchService;
+(function() {
+  'use strict';
 
-  beforeEach(module('OctoSearch'));
+  angular
+    .module('OctoSearch')
+    .controller('SearchController', ['$http', function  ($http) { // inject Service
+      var self = this;
 
-  beforeEach(function () {
-
-    MockSearchService = {
-      getUserData: function () {
-        return [
+      var userData = {
+        "total_count": 28942,
+        "incomplete_results": false,
+        "items": [
           {
             "login": "mike",
             "id": 1550195,
@@ -88,42 +90,38 @@ describe('UsersController', function () {
             "site_admin": false,
             "score": 29.537865
           }
-        ];
+        ]
+      };
+
+      self.users = [];
+      self.getUsers = getUsers;
+      self.getUserData = getUserData;
+      self.searchTerm = "";
+      var userSearchUrl = 'https://api.github.com/search/users';
+
+      function getUsers() {
+        self.users = [];
+        self.users = self.getUserData();
       }
-    };
 
-    inject(function ($controller) {
-      ctrl = $controller('UsersController', {SearchService: MockSearchService});
-    });
-  });
+      function getUserData() {
+        $http({
+          url: userSearchUrl,
+          method: 'GET',
+          params: {
+            access_token: '48d02c029257b65f09d126064a2dc9ec15b0ca55',
+            q: self.searchTerm
+          }
+        }).then (function(response){
+          _parseUserData(response.data);
+        });
+      }
 
-  it('initializes with an empty users property', function () {
-    expect(ctrl.users.length).toEqual(0);
-  });
-
-  it('initializes with an empty search term property', function(){
-    expect(ctrl.searchTerm).toEqual("");
-  });
-
-  describe('#getUserData', function(){
-
-    xit('gets users from the search service', function () {
-      spyOn(MockSearchService, 'getUserData').and.callThrough();
-      ctrl.getUsers();
-      expect(MockSearchService.getUserData).toHaveBeenCalled();
-    });
-
-    it('sets the users property to the users from the payload', function(){
-      ctrl.getUsers();
-      expect(ctrl.users.length).toEqual(4);
-    });
-
-    it('sets the users property with each username from the payload', function(){
-      ctrl.getUsers();
-      expect(ctrl.users[0]).toEqual('mike');
-    });
-
-  });
-
-
-});
+      function _parseUserData(data) {
+        var users = [];
+        data.items.forEach(function(user){
+          users.push(user.login);
+        });
+      }
+    }]);
+}());
