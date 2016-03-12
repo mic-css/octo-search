@@ -15,6 +15,8 @@ describe('octoSearch homepage', function () {
     var firstUser = users.first();
     var firstUserLogin = firstUser.element(by.css('.login'));
     expect(firstUserLogin.getText()).toContain('pitchinvasion');
+    var firstUserName = firstUser.element(by.css('.name'));
+    expect(firstUserName.getText()).toContain('Leo Allen');
     var firstUserFollowers = firstUser.element(by.css('.followers'));
     expect(firstUserFollowers.getText()).toMatch(/\d{1,}/);
     var firstUserRepos = firstUser.element(by.css('.repos'));

@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <title>Octosearch</title>
     <link rel="stylesheet" href="css/main.css" />
+    <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
     <script type="text/javascript" src="bower_components/angular/angular.js"></script>
     <script type="text/javascript" src="bower_components/angular-resource/angular-resource.js"></script>
@@ -23,9 +24,10 @@
         <ul id="user-list" ng-repeat="user in searchCtrl.users">
           <li class='user'>
             <img ng-src="{{user.avatar_url}}&s=75" alt="{{user.login}}-avatar"/>
-            <span class='login'>Login: {{user.login}}</span>
-            <span class='followers'>Followers: {{user.followers}}</span>
-            <span class='repos'>Public Repositories: {{user.public_repos}}</span>
+            <span class='login'>{{user.login}}</span>
+            <span class='name'>{{user.name}}</span>
+            <span class='followers'><span class="mega-octicon octicon-organization"></span> {{user.followers}}</span>
+            <span class='repos'><span class="mega-octicon octicon-repo"></span> {{user.public_repos}}</span>
           </li>
         </ul>
       </section>
