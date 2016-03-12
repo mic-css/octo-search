@@ -24,7 +24,8 @@ describe('service: SearchService', function() {
       login: 'rachelsmithcode',
       name: undefined,
       public_repos: 25,
-      followers: 100
+      followers: 100,
+      html_url: "https://github.com/rachelsmithcode"
     };
 
   var details1_unfiltered =
@@ -34,6 +35,7 @@ describe('service: SearchService', function() {
       name: undefined,
       public_repos: 25,
       followers: 100,
+      html_url: "https://github.com/rachelsmithcode",
       someDataWeDontWant: 1
     };
 
@@ -44,6 +46,7 @@ describe('service: SearchService', function() {
       name: undefined,
       public_repos: 5,
       followers: 10,
+      html_url: "https://github.com/arnoldmanzano"
     };
 
   var details2_unfiltered =
@@ -53,6 +56,7 @@ describe('service: SearchService', function() {
       name: undefined,
       public_repos: 5,
       followers: 10,
+      html_url: "https://github.com/arnoldmanzano",
       someDataWeDontWant: 1
     };
 

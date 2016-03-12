@@ -1,0 +1,153 @@
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+
+$faded-grey: rgb(144, 140, 140);
+$border-style: solid 1px $faded-grey;
+$link-blue: rgb(37, 108, 138);
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin placeholder {
+  color: $faded-grey;
+}
+
+body {
+  font-size: 24px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  @include box-sizing;
+}
+
+#main {
+  max-width: 40%;
+  min-width: 400px;
+  margin: 0 auto;
+}
+
+/**
+*---------------------- Search Bar ----------------------
+*/
+
+#search-bar {
+  display: flex;
+  margin-top: 10%;
+  height: 35px;
+  justify-content: space-between;
+
+  input[type="text"] {
+    height: 100%;
+    font-size: 28px;
+    flex-grow: 4;
+    font-weight: 300;
+    padding: 4px 0;
+    border: none;
+    border-bottom: $border-style;
+    color: $faded-grey;
+    outline: none;
+    @include box-sizing;
+  }
+
+  button {
+    display: inline-block;
+    width: 15%;
+    font-size: 24px;
+    height: 100%;
+    font-weight: 300;
+    margin-left: 5px;
+    background-color: rgb(165, 200, 224);
+    border: 1px solid;
+    border-radius: 5px;
+    color: $link-blue;
+    outline: none;
+    @include box-sizing;
+  }
+}
+
+::-webkit-input-placeholder {
+  @include placeholder;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  @include placeholder;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  @include placeholder;
+}
+
+:-ms-input-placeholder {
+  @include placeholder;
+}
+
+/**
+*---------------------- Search Results ----------------------
+*/
+
+#user-list {
+  list-style-type: none;
+  width: 80%;
+  padding: 0;
+  margin: 5% auto;
+  font-size: 80%;
+
+  .user {
+    list-style-position: inside;
+    display: flex;
+    border: $border-style;
+    border-radius: 5px;
+    padding: 5px;
+    height: 75px;
+
+    a {
+      text-decoration: none;
+      color: black;
+    }
+
+    a:hover {
+      color: $link-blue;
+    }
+
+    img {
+      flex: 0 0 75px;
+      float: left;
+      border-radius: 5px;
+      height: 75px;
+      width: 75px;
+    }
+
+    .user-aliases {
+      flex-grow: 4;
+      padding: 0 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+
+      .login {
+        font-size: 130%;
+      }
+
+      .name {
+        opacity: 0.6;
+      }
+    }
+
+    .user-stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      max-width: 80px;
+      min-width: 70px;
+
+      .mega-octicon {
+        font-size: 100%;
+      }
+
+      div {
+        text-align: center;
+      }
+    }
+  }
+}
