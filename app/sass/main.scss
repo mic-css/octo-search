@@ -1,6 +1,7 @@
 $font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-$text-color: rgb(144, 140, 140);
-$border-style: solid 1px $text-color;
+
+$faded-grey: rgb(144, 140, 140);
+$border-style: solid 1px $faded-grey;
 $link-blue: rgb(37, 108, 138);
 
 @mixin box-sizing {
@@ -10,7 +11,7 @@ $link-blue: rgb(37, 108, 138);
 }
 
 @mixin placeholder {
-  color: $text-color;
+  color: $faded-grey;
 }
 
 body {
@@ -18,14 +19,6 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   @include box-sizing;
-
-  a {
-    text-decoration: none;
-    color: black;
-    :hover {
-      color: $link-blue;
-    }
-  }
 }
 
 #main {
@@ -52,7 +45,7 @@ body {
     padding: 4px 0;
     border: none;
     border-bottom: $border-style;
-    color: $text-color;
+    color: $faded-grey;
     outline: none;
     @include box-sizing;
   }
@@ -101,11 +94,21 @@ body {
   font-size: 80%;
 
   .user {
+    list-style-position: inside;
     display: flex;
     border: $border-style;
     border-radius: 5px;
     padding: 5px;
     height: 75px;
+
+    a {
+      text-decoration: none;
+      color: black;
+
+      :hover {
+        color: $link-blue;
+      }
+    }
 
     img {
       flex: 0 0 75px;
