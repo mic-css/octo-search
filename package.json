@@ -11,6 +11,9 @@
     "update-webdriver": "webdriver-manager update --standalone",
     "protractor": "protractor test/protractor.conf.js"
   },
+  "engines": {
+  "node": "4.2.1"
+  },
   "author": "",
   "license": "ISC",
   "devDependencies": {
