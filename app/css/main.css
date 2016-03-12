@@ -15,13 +15,14 @@ body {
 *---------------------- Search Bar ----------------------
 */
 #search-bar {
+  display: flex;
   margin-top: 10%;
-  height: 35px; }
+  height: 35px;
+  justify-content: space-between; }
   #search-bar input[type="text"] {
-    display: inline-block;
-    width: 80%;
     height: 100%;
     font-size: 28px;
+    flex-grow: 4;
     font-weight: 300;
     padding: 4px 0;
     border: none;
@@ -33,10 +34,11 @@ body {
     box-sizing: border-box; }
   #search-bar button {
     display: inline-block;
-    min-width: 10%;
+    width: 15%;
     font-size: 24px;
     height: 100%;
     font-weight: 300;
+    margin-left: 5px;
     background-color: #a5c8e0;
     border: 1px solid;
     border-radius: 5px;
@@ -65,15 +67,35 @@ body {
 */
 #user-list {
   list-style-type: none;
-  padding: 0; }
+  width: 80%;
+  padding: 0;
+  margin: 5% auto;
+  font-size: 80%; }
   #user-list .user {
+    display: flex;
     border: solid 1px #908c8c;
     border-radius: 5px;
     padding: 5px;
     height: 75px; }
     #user-list .user img {
-      display: inline-block;
+      flex: 0 0 75px;
       float: left;
       border-radius: 5px;
       height: 75px;
       width: 75px; }
+    #user-list .user .user-aliases {
+      flex-grow: 4;
+      padding: 0 5px; }
+      #user-list .user .user-aliases .login {
+        font-size: 130%; }
+      #user-list .user .user-aliases .name {
+        opacity: 0.6; }
+    #user-list .user .user-stats {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      width: 50px; }
+      #user-list .user .user-stats .mega-octicon {
+        font-size: 100%; }
+      #user-list .user .user-stats div {
+        text-align: center; }

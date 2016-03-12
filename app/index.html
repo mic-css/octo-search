@@ -23,11 +23,20 @@
       <section>
         <ul id="user-list" ng-repeat="user in searchCtrl.users">
           <li class='user'>
-            <img ng-src="{{user.avatar_url}}&s=75" alt="{{user.login}}-avatar"/>
-            <span class='login'>{{user.login}}</span>
-            <span class='name'>{{user.name}}</span>
-            <span class='followers'><span class="mega-octicon octicon-organization"></span> {{user.followers}}</span>
-            <span class='repos'><span class="mega-octicon octicon-repo"></span> {{user.public_repos}}</span>
+            <img ng-src="{{user.avatar_url}}&s=75" title="{{user.login}} avatar" alt="{{user.login}} avatar"/>
+            <div class="user-aliases">
+              <div class='login'>{{user.login}}</div>
+              <div class='name'>{{user.name}}</div>
+            </div>
+
+            <div class="user-stats">
+              <div class='followers' title="{{user.login}} followers">
+                <span class="mega-octicon octicon-organization"></span> {{user.followers}}
+              </div>
+              <div class='repos' title="{{user.login}} repos">
+                <span class="mega-octicon octicon-repo"></span> {{user.public_repos}}
+              </div>
+            </div>
           </li>
         </ul>
       </section>
