@@ -105,7 +105,7 @@ body {
       text-decoration: none;
       color: black;
     }
-    
+
     a:hover {
       color: $link-blue;
     }
@@ -139,6 +139,7 @@ body {
       flex-direction: column;
       justify-content: space-around;
       max-width: 80px;
+      min-width: 70px;
 
       .mega-octicon {
         font-size: 100%;

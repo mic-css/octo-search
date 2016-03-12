@@ -103,7 +103,8 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      max-width: 80px; }
+      max-width: 80px;
+      min-width: 70px; }
       #user-list .user .user-stats .mega-octicon {
         font-size: 100%; }
       #user-list .user .user-stats div {
