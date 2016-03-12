@@ -1,5 +1,6 @@
 $font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $text-color: rgb(144, 140, 140);
+$border-style: solid 1px $text-color;
 
 @mixin box-sizing {
   -webkit-box-sizing: border-box;
@@ -20,6 +21,7 @@ body {
 
 #main {
   max-width: 40%;
+  min-width: 400px;
   margin: 0 auto;
 }
 
@@ -39,7 +41,7 @@ body {
     font-weight: 300;
     padding: 4px 0;
     border: none;
-    border-bottom: solid 1px $text-color;
+    border-bottom: $border-style;
     color: $text-color;
     outline: none;
     @include box-sizing;
@@ -82,4 +84,18 @@ body {
 
 #user-list {
   list-style-type: none;
+  padding: 0;
+  .user {
+    border: $border-style;
+    border-radius: 5px;
+    padding: 5px;
+    height: 75px;
+    img {
+      display: inline-block;
+      float: left;
+      border-radius: 5px;
+      height: 75px;
+      width: 75px;
+    }
+  }
 }
