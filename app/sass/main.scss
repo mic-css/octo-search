@@ -1,6 +1,7 @@
 $font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 $text-color: rgb(144, 140, 140);
 $border-style: solid 1px $text-color;
+$link-blue: rgb(37, 108, 138);
 
 @mixin box-sizing {
   -webkit-box-sizing: border-box;
@@ -17,6 +18,14 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   @include box-sizing;
+
+  a {
+    text-decoration: none;
+    color: black;
+    :hover {
+      color: $link-blue;
+    }
+  }
 }
 
 #main {
@@ -58,7 +67,7 @@ body {
     background-color: rgb(165, 200, 224);
     border: 1px solid;
     border-radius: 5px;
-    color: rgb(37, 108, 138);
+    color: $link-blue;
     outline: none;
     @include box-sizing;
   }
@@ -109,6 +118,9 @@ body {
     .user-aliases {
       flex-grow: 4;
       padding: 0 5px;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
 
       .login {
         font-size: 130%;
@@ -123,7 +135,7 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      width: 50px;
+      max-width: 80px;
 
       .mega-octicon {
         font-size: 100%;

@@ -24,7 +24,8 @@
           login: results.login,
           name: results.name,
           public_repos: results.public_repos,
-          followers: results.followers
+          followers: results.followers,
+          html_url: results.html_url
         };
       };
 

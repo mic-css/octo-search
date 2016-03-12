@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Octosearch</title>
+    <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="bower_components/octicons/octicons/octicons.css">
     <script type="text/javascript" src="bower_components/jquery/dist/jquery.js"></script>
@@ -25,16 +26,16 @@
           <li class='user'>
             <img ng-src="{{user.avatar_url}}&s=75" title="{{user.login}} avatar" alt="{{user.login}} avatar"/>
             <div class="user-aliases">
-              <div class='login'>{{user.login}}</div>
+              <div class='login'><a ng-href="{{user.html_url}}">{{user.login}}</a></div>
               <div class='name'>{{user.name}}</div>
             </div>
 
             <div class="user-stats">
               <div class='followers' title="{{user.login}} followers">
-                <span class="mega-octicon octicon-organization"></span> {{user.followers}}
+                <a ng-href="{{user.html_url}}/followers"><span class="mega-octicon octicon-organization"></span> {{user.followers}}</a>
               </div>
               <div class='repos' title="{{user.login}} repos">
-                <span class="mega-octicon octicon-repo"></span> {{user.public_repos}}
+                <a ng-href="{{user.html_url}}?tab=repositories"><span class="mega-octicon octicon-repo"></span> {{user.public_repos}}</a>
               </div>
             </div>
           </li>
