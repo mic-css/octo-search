@@ -1,0 +1,85 @@
+$font-stack: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+$text-color: rgb(144, 140, 140);
+
+@mixin box-sizing {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+@mixin placeholder {
+  color: $text-color;
+}
+
+body {
+  font-size: 24px;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  font-weight: 300;
+  @include box-sizing;
+}
+
+#main {
+  max-width: 40%;
+  margin: 0 auto;
+}
+
+/**
+*---------------------- Search Bar ----------------------
+*/
+
+#search-bar {
+  margin-top: 10%;
+  height: 35px;
+
+  input[type="text"] {
+    display: inline-block;
+    width: 80%;
+    height: 100%;
+    font-size: 28px;
+    font-weight: 300;
+    padding: 4px 0;
+    border: none;
+    border-bottom: solid 1px $text-color;
+    color: $text-color;
+    outline: none;
+    @include box-sizing;
+  }
+
+  button {
+    display: inline-block;
+    min-width: 10%;
+    font-size: 24px;
+    height: 100%;
+    font-weight: 300;
+    background-color: rgb(165, 200, 224);
+    border: 1px solid;
+    border-radius: 5px;
+    color: rgb(37, 108, 138);
+    outline: none;
+    @include box-sizing;
+  }
+}
+
+::-webkit-input-placeholder {
+  @include placeholder;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  @include placeholder;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  @include placeholder;
+}
+
+:-ms-input-placeholder {
+  @include placeholder;
+}
+
+/**
+*---------------------- Search Results ----------------------
+*/
+
+#user-list {
+  list-style-type: none;
+}

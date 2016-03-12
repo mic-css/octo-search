@@ -3,60 +3,64 @@ body {
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   font-weight: 300;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
+  -moz-box-sizing: border-box;
+  box-sizing: border-box; }
 
 #main {
   max-width: 40%;
-  margin: 0 auto;
-}
+  margin: 0 auto; }
 
+/**
+*---------------------- Search Bar ----------------------
+*/
 #search-bar {
   margin-top: 10%;
-  height: 35px;
-}
-
-#search-bar input[type="text"] {
-  display: inline-block;
-  width: 80%;
-  height: 100%;
-  font-size: 28px;
-  font-weight: 300;
-  padding: 4px 0;
-  border: none;
-  border-bottom: solid 1px rgb(144, 140, 140);
-  color: rgb(144, 140, 140);
-  outline: none;
-  box-sizing: border-box;
-}
-
-#search-bar button {
-  display: inline-block;
-  min-width: 10%;
-  font-size: 24px;
-  height: 100%;
-  font-weight: 300;
-  background-color: rgb(165, 200, 224);
-  border: 1px solid;
-  border-radius: 5px;
-  color: rgb(37, 108, 138);
-  box-sizing: border-box;
-  outline: none;
-}
+  height: 35px; }
+  #search-bar input[type="text"] {
+    display: inline-block;
+    width: 80%;
+    height: 100%;
+    font-size: 28px;
+    font-weight: 300;
+    padding: 4px 0;
+    border: none;
+    border-bottom: solid 1px #908c8c;
+    color: #908c8c;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
+  #search-bar button {
+    display: inline-block;
+    min-width: 10%;
+    font-size: 24px;
+    height: 100%;
+    font-weight: 300;
+    background-color: #a5c8e0;
+    border: 1px solid;
+    border-radius: 5px;
+    color: #256c8a;
+    outline: none;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box; }
 
 ::-webkit-input-placeholder {
-  color: rgb(144, 140, 140);
-}
+  color: #908c8c; }
 
-:-moz-placeholder { /* Firefox 18- */
-  color: rgb(144, 140, 140);
-}
+:-moz-placeholder {
+  /* Firefox 18- */
+  color: #908c8c; }
 
-::-moz-placeholder {  /* Firefox 19+ */
-  color: rgb(144, 140, 140);
-}
+::-moz-placeholder {
+  /* Firefox 19+ */
+  color: #908c8c; }
 
 :-ms-input-placeholder {
-  color: rgb(144, 140, 140);
-}
+  color: #908c8c; }
+
+/**
+*---------------------- Search Results ----------------------
+*/
+#user-list {
+  list-style-type: none; }
