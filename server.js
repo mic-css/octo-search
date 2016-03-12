@@ -4,8 +4,12 @@ var port = process.env.PORT || 8080;
 
 app.use(express.static(__dirname + '/app'));
 
-app.listen(8080);
-  console.log("App listening on port 8080");
+// app.listen(8080);
+// console.log("App listening on port 8080");
+
+app.listen(port, function() {
+  console.log('Listening on port %d', port);
+});
 
 app.get('*', function(req, res){
   res.sendfile('../index.html');
