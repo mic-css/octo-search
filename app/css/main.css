@@ -5,11 +5,6 @@ body {
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
-  body a {
-    text-decoration: none;
-    color: black; }
-    body a :hover {
-      color: #256c8a; }
 
 #main {
   max-width: 40%;
@@ -77,11 +72,17 @@ body {
   margin: 5% auto;
   font-size: 80%; }
   #user-list .user {
+    list-style-position: inside;
     display: flex;
     border: solid 1px #908c8c;
     border-radius: 5px;
     padding: 5px;
     height: 75px; }
+    #user-list .user a {
+      text-decoration: none;
+      color: black; }
+    #user-list .user a:hover {
+      color: #256c8a; }
     #user-list .user img {
       flex: 0 0 75px;
       float: left;
