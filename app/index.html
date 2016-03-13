@@ -25,8 +25,8 @@
       </section>
 
       <section>
-        <ul id="user-list" ng-repeat="user in searchCtrl.users">
-          <li class='user'>
+        <ul id="user-list">
+          <li class='user' ng-repeat="user in searchCtrl.users">
             <img ng-src="{{user.avatar_url}}&s=75" title="{{user.login}} avatar" alt="{{user.login}} avatar"/>
             <div class="user-aliases">
               <div class='login'><a ng-href="{{user.html_url}}">{{user.login}}</a></div>
