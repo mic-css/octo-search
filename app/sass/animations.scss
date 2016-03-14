@@ -18,7 +18,7 @@
 
 .user.ng-enter,
 .user.ng-move {
-  // opacity: 0;
+  opacity: 0;
   height: 0;
   width: 0;
   overflow: hidden;
@@ -26,20 +26,20 @@
 
 .user.ng-move.ng-move-active,
 .user.ng-enter.ng-enter-active {
-  // opacity: 1;
+  opacity: 1;
   height: 75px;
   width: 97%;
 }
 
 .user.ng-leave {
-  // opacity: 1;
+  opacity: 1;
   height: 75px;
   width: 97%;
   overflow: hidden;
 }
 
 .user.ng-leave.ng-leave-active {
-  // opacity: 0;
+  opacity: 0;
   height: 0;
   width: 0;
 }
