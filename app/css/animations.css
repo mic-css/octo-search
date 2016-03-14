@@ -9,8 +9,8 @@
 .user.ng-enter-stagger,
 .user.ng-leave-stagger,
 .user.ng-move-stagger {
-  -webkit-transition-delay: 0.05s;
-  transition-delay: 0.05s;
+  -webkit-transition-delay: 0.02s;
+  transition-delay: 0.02s;
   -webkit-transition-duration: 0;
   transition-duration: 0; }
 
