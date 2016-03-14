@@ -9,8 +9,36 @@ http://octosearchleo.herokuapp.com/
 # Installation
 
 * Fork this repository on Github and clone down to your local machine
-* Run npm install and bower install to install the key packages for the program. Make sure these folders are added to a .gitignore file to ensure they're not uploaded to github.
-* Run ``` npm start ``` to start the server, and the application should be available to visit in the browser at http://localhost:8000
+* Run `npm install` to install the key packages for the program (this should also run `bower install` automatically)
+* Run `npm start` to start the server, then visit http://localhost:8000
+```sh
+$ git clone https://github.com/YOUR-USERNAME/octo-search.git
+$ cd octo-search
+$ npm install
+$ npm start
+```
+
+* Run gulp to watch and compile any Sass should you want to change the front-end design:
+```sh
+$ gulp sass:watch
+```
+
+## Testing
+
+* To run unit tests with [karma](https://karma-runner.github.io/0.13/index.html) run:
+```sh
+$ npm test
+```
+
+* To run feature tests with [protractor](https://angular.github.io/protractor/#/) make sure you have the server and webdriver-manager running simultaneously in separate terminal panes, and run:
+```sh
+# separate pane
+$ npm start
+# separate pane
+$ webdriver-manager test
+# separate pane
+$ npm run protractor
+```
 
 # Using OctoSearch
 
@@ -45,8 +73,6 @@ http://octosearchleo.herokuapp.com/
 * Sass and CSS was used for the front end design and animations
 
 * Waffle IO was used for managing the workflow in developing the app
-
-# Testing
 
 * Protractor was used for E2E testing, and Karma as the test-runner for the Unit tests, both using the Jasmine testing framework
 
