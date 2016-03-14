@@ -63,10 +63,9 @@
               details.push(self.requestUserDetails(username));
             });
           }).then(function() {
-            $q.all(details)
-              .then(function(results) {
-                deferred.resolve(results);
-              });
+            return $q.all(details);
+          }).then(function(results) {
+            deferred.resolve(results);
           });
         return deferred.promise;
       };
