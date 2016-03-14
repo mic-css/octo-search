@@ -103,9 +103,9 @@ $ npm run protractor
 
 * This project was developed by:
 
-  Arnold Manzano,
-  Emma Baddeley,
-  Mic Cassano,
-  Rachel Smith
+  [Arnold Manzano](https://github.com/arnoldmanzano),
+  [Emma Baddeley](https://github.com/esbaddeley),
+  [Mic Cassano](https://github.com/mic-css),
+  [Rachel Smith](https://github.com/rachelsmithcode)
 
-  We are all students at Makers Academy, a 12 week immersive web development bootcamp based in East London.
+  We are all students at [Makers Academy](http://www.makersacademy.com/), a 12 week immersive web development bootcamp based in East London.
