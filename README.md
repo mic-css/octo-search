@@ -13,4 +13,4 @@ A lean GitHub user search built in AngularJS.
 *
 
 
-![ScreenShot](https://www.dropbox.com/s/s6hn6aj077rw44w/Screenshot%202016-02-15%2011.36.34.png?dl=0)
+![ScreenShot](https://{www.dropbox.com/s/s6hn6aj077rw44w/Screenshot%202016-02-15%2011.36.34.png?dl=0})
