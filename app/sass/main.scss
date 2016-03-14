@@ -50,7 +50,7 @@ body {
     @include box-sizing;
   }
 
-  button {
+  input[type="submit"] {
     display: inline-block;
     width: 15%;
     font-size: 24px;

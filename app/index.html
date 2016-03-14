@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="en" ng-app="OctoSearch">
   <head>
-    <meta charset="utf-8">
+    <meta charset="utf-8" />
     <title>Octosearch</title>
-    <link rel="icon" href="favicon.ico" type="image/x-icon"/>
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="stylesheet" href="bower_components/normalize-css/normalize.css" />
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/animations.css" />
@@ -19,15 +19,22 @@
 
   <body ng-controller="SearchController as searchCtrl">
     <div id="main">
-      <section id="search-bar">
-        <input type="text" ng-model="searchCtrl.searchTerm" placeholder="Search for GitHub user" autofocus>
-        <button type="button" ng-click="searchCtrl.getUsers()">Go!</button>
-      </section>
+
+      <form id="search-bar" novalidate>
+        <input type="text" ng-model="searchCtrl.searchTerm"
+          placeholder="Search for GitHub user" autofocus />
+        <input type="submit" value="Go!" ng-show="searchCtrl.searchTerm"
+          ng-click="searchCtrl.searchTerm && searchCtrl.getUsers()" />
+      </form>
 
       <section>
+
         <ul id="user-list">
+
           <li class='user' ng-repeat="user in searchCtrl.users">
-            <img ng-src="{{user.avatar_url}}&s=75" title="{{user.login}} avatar" alt="{{user.login}} avatar"/>
+
+            <img ng-src="{{user.avatar_url}}&s=75" title="{{user.login}} avatar" alt="{{user.login}} avatar" />
+
             <div class="user-aliases">
               <div class='login'><a ng-href="{{user.html_url}}">{{user.login}}</a></div>
               <div class='name'>{{user.name}}</div>
@@ -41,10 +48,12 @@
                 <a ng-href="{{user.html_url}}?tab=repositories"><span class="mega-octicon octicon-repo"></span> {{user.public_repos}}</a>
               </div>
             </div>
+
           </li>
+
         </ul>
       </section>
-    </div>
 
+    </div>
   </body>
 </html>
