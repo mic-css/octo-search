@@ -2,6 +2,6 @@
   'use strict';
 
   angular
-    .module('OctoSearch', ['ngResource']);
+    .module('OctoSearch', ['ngResource', 'ngAnimate']);
 
 }());

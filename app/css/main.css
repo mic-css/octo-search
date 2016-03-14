@@ -77,7 +77,7 @@ body {
     border: solid 1px #908c8c;
     border-radius: 5px;
     padding: 5px;
-    height: 75px; }
+    margin: 15px 0; }
     #user-list .user a {
       text-decoration: none;
       color: black; }
@@ -92,9 +92,11 @@ body {
     #user-list .user .user-aliases {
       flex-grow: 4;
       padding: 0 5px;
-      white-space: nowrap;
-      overflow: hidden;
-      text-overflow: ellipsis; }
+      overflow: hidden; }
+      #user-list .user .user-aliases * {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis; }
       #user-list .user .user-aliases .login {
         font-size: 130%; }
       #user-list .user .user-aliases .name {

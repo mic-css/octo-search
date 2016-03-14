@@ -99,7 +99,7 @@ body {
     border: $border-style;
     border-radius: 5px;
     padding: 5px;
-    height: 75px;
+    margin: 15px 0;
 
     a {
       text-decoration: none;
@@ -121,9 +121,13 @@ body {
     .user-aliases {
       flex-grow: 4;
       padding: 0 5px;
-      white-space: nowrap;
       overflow: hidden;
-      text-overflow: ellipsis;
+
+      * {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
 
       .login {
         font-size: 130%;
